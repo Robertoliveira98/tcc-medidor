@@ -4,5 +4,5 @@
  */
 
 exports.index = function(req, res){
-  res.render('index', { title: 'TCC ok' });
+  res.render('index', { title: 'medidor ok' });
 };

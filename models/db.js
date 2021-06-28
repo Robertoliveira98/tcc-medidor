@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/medidor');
+mongoose.connect('mongodb://0.0.0.0/medidor');
 
 const ambiente = new Schema({
     nome: { type: String, default: '' },
