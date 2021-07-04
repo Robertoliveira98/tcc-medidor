@@ -5,6 +5,7 @@
 const express = require('express');
 const controllers = require('./controllers');
 const medicoes = require('./controllers/medicoes');
+const tokens = require('./controllers/tokens');
 const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -17,12 +18,11 @@ app.set('view engine', 'jade');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-/*
-var env = process.env.NODE_ENV || 'development';
-if ('development' == env) {
-  app.use(express.errorHandler());
-}
-*/
+let validateToken = function (req, res, next) {
+  tokens.getToken(req, res, next);
+};
+
+app.use(validateToken);
 
 app.get('/', controllers.index);
 
