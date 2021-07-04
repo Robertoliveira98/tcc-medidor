@@ -19,7 +19,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
 let validateToken = function (req, res, next) {
-  tokens.getToken(req, res, next);
+  if ('/' === req.path) {
+    next()
+  } else {
+    tokens.getToken(req, res, next);
+  }
 };
 
 app.use(validateToken);
