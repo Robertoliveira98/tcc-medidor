@@ -2,8 +2,8 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 // mongoose.connect('mongodb://0.0.0.0/medidor');
-// mongoose.connect('mongodb://medidorco2:rdapdm22@0.0.0.0/medidor?authSource=admin');
-mongoose.connect('mongodb://0.0.0.0/medidor?authSource=admin');
+mongoose.connect('mongodb://medidorco2:rdapdm22@0.0.0.0/medidor?authSource=admin');
+// mongoose.connect('mongodb://0.0.0.0/medidor?authSource=admin');
 
 const ambiente = new Schema({
     nome: { type: String, default: '' },
