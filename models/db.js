@@ -12,6 +12,7 @@ const ambiente = new Schema({
 
 const medicoes = new Schema({
     medicao: { type: String, default: '' },
+    risco: {type: Number, default: -1},
     idSensor: { type: String, default: '' },
     ambiente: { type: ambiente, default: {} },
     data: { type: Date, default: Date.now }

@@ -1,5 +1,6 @@
 const medicoes = require('../models/db.js');
 const Service = require('../services/medicoes.js');
+const RiscoService = require('../services/risco.js');
 
 function getListaMedicoes(req, res){
   medicoes.find()
@@ -17,6 +18,8 @@ function getListaMedicoesFilter(req, res, next){
 };
 
 function insert(req, res){
+  let body = req.body;
+  body.risco = RiscoService.calculaRisco(body.medicao, 1, 2, 20);
   medicoes.create(req.body)
   .then(resp => {
     res.send(resp);
