@@ -7,6 +7,9 @@ function getFilter(body) {
     if(body && body.ambienteId)
         filter["ambiente.id"] = body.ambienteId
 
+    if(body && body.idSensor)
+        filter.idSensor = body.idSensor
+
     if(body && body.from && body.to){
         filter.data = {$gte: body.from, $lte: body.to};
     } else if (body && body.from) {
