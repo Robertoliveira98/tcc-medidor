@@ -10,7 +10,10 @@ const http = require('http');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+var cors = require('cors');
 var app = express();
+
+app.use(cors);
 
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/views');
