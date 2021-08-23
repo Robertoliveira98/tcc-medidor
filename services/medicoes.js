@@ -4,6 +4,9 @@ const momentTz = require('moment-timezone');
 function getFilter(body) {
     let filter = {};
 
+    //TODO -> Apagar apos ajuste
+    filter.medicao = {$nin: ["-1"]}
+
     if(body && body.ambienteId)
         filter["ambiente.id"] = body.ambienteId
 
