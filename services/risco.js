@@ -8,12 +8,12 @@ function recalculaRiscoDados(medicoes, numeroInfectados = 1, tempo = 2, ocupante
 }
 
 //formula da probabilidade derivada de Wells–Riley (RUDNICK; MILTON, 2003),
-function calculaRisco(taxaCoIn, numeroInfectados, tempo, ocupantes, quanta = 25, temMask = true) {
+function calculaRisco(taxaCoIn, numeroInfectados, tempo, ocupantes, quanta = 25, temMask = true, porcEficienciaMask = 0.5) {
     //passar para configuração 
     const taxaCoEx = 380;
     const coExalada = 15000;
     const porcOcupantesMask = 1; //todos
-    const porcEficienciaMask = 0.5; //mascara de pano
+    // const porcEficienciaMask = 0.5; //mascara de pano
 
     let quantaExaComMask = temMask ? getQuantaExaComMask(quanta, porcOcupantesMask, porcEficienciaMask) : quanta;
     

@@ -20,8 +20,9 @@ function getListaMedicoesFilter(req, res, next){
 function insert(req, res){
   let body = req.body;
   //TODO - parametrizar entradas
-  body.risco = RiscoService.calculaRisco(body.medicao, 1, 2, 20, 25 , true);
-  body.riscoSemMascara = RiscoService.calculaRisco(body.medicao, 1, 2, 20, 25, false)
+  body.risco = RiscoService.calculaRisco(body.medicao, 1, 2, 20, 25 , true, 0.5);
+  body.riscoSemMascara = RiscoService.calculaRisco(body.medicao, 1, 2, 20, 25, false, 0)
+  body.riscoComPff2 = RiscoService.calculaRisco(body.medicao, 1, 2, 20, 25, true, 0.95)
   medicoes.create(req.body)
   .then(resp => {
     res.send(resp);
