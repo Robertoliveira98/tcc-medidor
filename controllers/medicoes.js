@@ -11,7 +11,8 @@ function getListaMedicoes(req, res){
 
 function getListaMedicoesFilter(req, res, next){
   let filter = Service.getFilter(req.body);
-  medicoes.aggregate([{ $match: filter}])
+  // medicoes.aggregate([{ $match: filter}])
+  medicoes.find(filter)
   .then(resp => {
     res.json(resp);
   });
