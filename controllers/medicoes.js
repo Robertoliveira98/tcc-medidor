@@ -42,7 +42,25 @@ function getMedicao(req, res){
 
   // medicoes.aggregate([{ $match: filter}])
   medicoes.find(filter)
-  .then(resp => {
+  .then(medicoes => {
+    let resp = {}
+
+    if (medicoes.length > 0) {
+      resp = medicoes[0];
+      let medicaoAux = 0;
+
+      medicoes.forEach(medicoes => {
+        medicaoAux += parseInt(medicoes.medicao);
+      });
+
+      medicaoAux = (medicaoAux/medicoes.length);
+
+      resp.medicao = medicaoAux;
+      resp.risco = RiscoService.calculaRisco(medicaoAux, 1, 2, 20, 25 , true, 0.5);
+      resp.riscoSemMascara = RiscoService.calculaRisco(medicaoAux, 1, 2, 20, 25, false, 0)
+      resp.riscoComPff2 = RiscoService.calculaRisco(medicaoAux, 1, 2, 20, 25, true, 0.95)
+    }
+    
     res.json(resp);
   });
 }
