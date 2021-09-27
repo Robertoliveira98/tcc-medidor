@@ -53,7 +53,7 @@ function getMedicao(req, res){
         medicaoAux += parseInt(medicoes.medicao);
       });
 
-      medicaoAux = (medicaoAux/medicoes.length);
+      medicaoAux = parseInt(medicaoAux/medicoes.length);
 
       resp.medicao = medicaoAux;
       resp.risco = RiscoService.calculaRisco(medicaoAux, 1, 2, 20, 25 , true, 0.5);
