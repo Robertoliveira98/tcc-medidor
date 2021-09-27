@@ -30,7 +30,25 @@ function insert(req, res){
   });
 };
 
+function getMedicao(req, res){
+  let dataAtual = new Date();
+  let dataAnterior = new Date(dataAtual.getTime() - 60000);
+  
+  let filter = Service.getFilter({ 
+    "idSensor": req.params.idSensor,
+    "from": dataAnterior,
+    "to": dataAtual 
+  });
+
+  // medicoes.aggregate([{ $match: filter}])
+  medicoes.find(filter)
+  .then(resp => {
+    res.json(resp);
+  });
+}
+
 module.exports = {
+  getMedicao,
   getListaMedicoes,
   getListaMedicoesFilter,
   insert

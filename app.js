@@ -44,6 +44,10 @@ app.get('/medicoes', (req, res, next) => {
   medicoes.getListaMedicoes(req, res, next);
 });
 
+app.get('/medicao/:idSensor', (req, res, next) => {
+  medicoes.getMedicao(req, res, next);
+});
+
 app.post('/medicoes', (req, res, next) => {
   medicoes.getListaMedicoesFilter(req, res, next);
 });
