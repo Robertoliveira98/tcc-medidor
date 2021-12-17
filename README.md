@@ -6,9 +6,23 @@ Node v14.16.0
 # Execução
 ### npm start
 
+Executado em http://localhost:3000.
+
+# Banco de dados
+
+MongoDB v4.4.6
+
+Nome do banco: "medidor"
+
+Collections:
+  - "tokens" - Onde são adicionados os tokens autorizados a fazerem requisições..
+  - "medicoes" - Onde são salvas as medições realizadas pelo sensor.
+
+Os schemas estão dentro da pasta models. 
+
 # Endpoints
 
-Necessário incluir token (que deve ser cadastrado préviamente na collection "tokens" do banco de dados) no parâmetro Authorization do Header da requisição.
+Necessário incluir token (que deve ser cadastrado previamente na collection "tokens" do banco de dados) no parâmetro Authorization do Header da requisição.
 
 ## GET http://localhost:3000/medicoes/:idSensor
 Retorna todas as medições de um sensor.
